@@ -713,10 +713,17 @@ __PTW32_BEGIN_C_DECLS
   void *__ptw32_calloc (size_t n, size_t s);
 #endif
 
+#ifndef __PTW32_CLEANUP_CXX
 /* Declared in ptw32_throw.c */
 void __ptw32_throw (DWORD exception);
+#endif
 
 __PTW32_END_C_DECLS
+
+#ifdef __PTW32_CLEANUP_CXX
+/* Declared in ptw32_throw.c */
+void __ptw32_throw(DWORD exception);
+#endif
 
 #if defined(_UWIN_)
 #   if defined(_MT)
